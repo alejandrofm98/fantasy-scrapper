@@ -1,7 +1,7 @@
 version: "3.9"
 services:
 
-  db:
+  fantasy-db:
     image: mysql
     restart: always
     environment:

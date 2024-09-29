@@ -8,8 +8,8 @@
 
     - name: Cloning git
       git:
-        repo: "https://github.com/alejandrofm98/config-servidores.git"
-        dest: "/home/proyectos/config-servidores"
+        repo: "https://github.com/alejandrofm98/fantasy-scrapper.git"
+        dest: "/home/proyectos/fantasy-scrapper"
         force: true
 
     - name: Copying .env
