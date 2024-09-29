@@ -1,2 +1,4 @@
 /Config-servidores/ansible/maquinas
 /Config-servidores/database/.env
+/Scripts-Python/.env
+.idea/*
