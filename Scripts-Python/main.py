@@ -1,0 +1,26 @@
+import requests
+
+
+bearer_token = 'Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkNBdXdPcWRMN2YyXzlhTVhZX3ZkbEcyVENXbVV4aklXV1MwNVB4WHljcUkiLCJ0eXAiOiJKV1QifQ.eyJhdWQiOiJjZjExMDgyNy1lNGE5LTRkMjAtYWZmYi04ZWEwYzZmMTVmOTQiLCJpc3MiOiJodHRwczovL2xvZ2luLmxhbGlnYS5lcy8zMzUzMTZlYi1mNjA2LTQzNjEtYmI4Ni0zNWE3ZWRjZGNlYzEvdjIuMC8iLCJleHAiOjE3Mjc1NTAwMDgsIm5iZiI6MTcyNzQ2MzYwOCwiZW1haWwiOiJhbGVqYW5kcm90b21ha2FyYUBnbWFpbC5jb20iLCJnaXZlbl9uYW1lIjoiYWxlamFuZHJvIiwiZmFtaWx5X25hbWUiOiJmdWVudGVzIiwibmFtZSI6Ikdvb2dsZSB1c2VyIiwiaWRwIjoiZ29vZ2xlLmNvbSIsInN1YiI6ImQwZjE4NjIxLTg0NDYtNGNkNi1hMjU5LWFhZTczNjYzODE4ZCIsIm5ld1VzZXIiOmZhbHNlLCJleHRlbnNpb25fRW1haWxWZXJpZmllZCI6dHJ1ZSwiZXh0ZW5zaW9uX1VzZXJQcm9maWxlSWQiOiIwNWE1NmYwMy03YTNiLTRhODItYWJmOC0xODRmNzE1MGI1NzYiLCJvaWQiOiIwNWE1NmYwMy03YTNiLTRhODItYWJmOC0xODRmNzE1MGI1NzYiLCJub25jZSI6IkVTNkh0aFIwMlNuQ0xrRUNtaVRsRFEsZGVmYXVsdE5vbmNlIiwiYXpwIjoiY2YxMTA4MjctZTRhOS00ZDIwLWFmZmItOGVhMGM2ZjE1Zjk0IiwidmVyIjoiMS4wIiwiaWF0IjoxNzI3NDYzNjA4fQ.Bza9c1BwI_KU_RasgFWEWJYx8a4qsIxUlNtGSes3L80kwaCKJ0vUOV9WPbxxbUHgWjE5wgY7wSLSCxdoLpCuYr5i6k8FBfPWMfFP_w5z-WOFGxg4-AX7MVz_oord6Cmyo4SzMV1zd3_QUrWsSkJ3apx0Juce947fgORokFX_pfcM9vCgE11C2DavKUeIwVI7iCz79oxSvPtczTXlndhSX0KhyHhudgqVxGaoZng38TjGb614YgNQD2OAC63NyuDo80fQ2a0jk0EOmzy72AKdjlSBS_9V3ysYZmLr0xn8Lj8B_QEHru56Koxku5YfRmd0ML1h05_DpRRPEKo89HYPxg'
+payload = {}
+headers = {
+    'Authorization': bearer_token
+}
+base_url = 'https://api-fantasy.llt-services.com/api/'
+
+def call_api(url):
+    final_url = base_url + url
+
+    response = requests.request("GET", final_url, headers=headers, data=payload)
+    if response.status_code != 200:
+        print('Failed to call api')
+    return response.json()
+
+
+
+if __name__ == '__main__':
+    print(call_api('v3/leagues/013852060/news/1?x-lang=es'))
+
+
+
+# See PyCharm help at https://www.jetbrains.com/help/pycharm/
